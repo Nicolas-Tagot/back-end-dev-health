@@ -32,34 +32,17 @@ router.get('/', (req, res) => {
     });
 });
 
-//GET ALL RESPONSE WHERE medic = 1
-router.get('/medic', (req, res) => {
-    connection.query('SELECT * FROM response WHERE medic = 1', (error, results) => {
-        if(error) {
-            return res.status(500).json({ error: err.message, sql: err.sql });
-        }
-        return res.status(200).json(results);
-    });
-});
-
-// GET ALL response WHERE perso = 1
-router.get('/perso', (req, res) => {
-    connection.query('SELECT * FROM response WHERE perso = 1', (error, results) => {
-        if(error) {
-            return res.status(500).json({ error: err.message, sql: err.sql });
-        }
-        return res.status(200).json(results);
-    });
-});
-
-// GET ALL response WHERE sante = 1
-router.get('/sante', (req, res) => {
-    connection.query('SELECT * FROM response WHERE sante = 1', (error, results) => {
-        if(error) {
-            return res.status(500).json({ error: err.message, sql: err.sql });
-        }
-        return res.status(200).json(results);
-    });
-});
+router.get('/:id', (req, res) => {
+    id = req.params.id
+      connection.query(`SELECT * FROM response WHERE id_patient= ${id}`, (err, results) => {
+          if(err) {
+              return res.status(500).json({
+                  error: err.message,
+                  sql : err.sql
+              });
+          }
+          res.json(results)
+      });
+  });
 
 module.exports = router;

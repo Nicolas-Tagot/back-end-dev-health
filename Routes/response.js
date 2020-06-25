@@ -18,8 +18,21 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    connection.query('SELECT * FROM response', 
+    connection.query('SELECT * FROM response',
     (err, results) => {
+        if(err) {
+            return res.status(500).json({
+                error: err.message,
+                sql : err.sql
+            });
+        }
+        res.json(results)
+    });
+});
+
+router.get('/:id', (req, res) => {
+  id = req.params.id
+    connection.query(`SELECT * FROM response WHERE id_patient= ${id}`, (err, results) => {
         if(err) {
             return res.status(500).json({
                 error: err.message,

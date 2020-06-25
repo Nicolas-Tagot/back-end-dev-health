@@ -1,0 +1,9 @@
+### CREER UNE REPONSE
+POST http://localhost:8000/response/
+Content-Type: application/json
+
+{"response" : "response test"}
+
+### RÉCUPÉRER TOUTES LES RESPONSE
+GET http://localhost:8000/response/
+

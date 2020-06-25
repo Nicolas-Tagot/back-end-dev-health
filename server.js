@@ -19,8 +19,8 @@ app.use((req, res, next) => {
 });
 
 
-const aboutRoute = require('./routes/about');
-const templRoute = require('./routes/template');
+const aboutRoute = require('./Routes/about');
+const templRoute = require('./Routes/template');
 app.use('/about', aboutRoute);
 app.use('/templates', templRoute);
 

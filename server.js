@@ -21,8 +21,10 @@ app.use((req, res, next) => {
 
 const aboutRoute = require('./Routes/about');
 const templRoute = require('./Routes/template');
+const patientRoute = require('./Routes/patient');
 app.use('/about', aboutRoute);
 app.use('/templates', templRoute);
+app.use('/patient', patientRoute);
 
 
 

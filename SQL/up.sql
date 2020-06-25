@@ -3,9 +3,17 @@ CREATE TABLE template (
   name VARCHAR(50)
 );
 
-CREATE TABLE response(
-id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-response VARCHAR(255));
+DROP TABLE IF EXISTS `response`;
+CREATE TABLE `response` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `response` varchar(255) DEFAULT NULL,
+  `heure` datetime DEFAULT CURRENT_TIMESTAMP,
+  `medic` tinyint(4) DEFAULT NULL,
+  `sante` tinyint(4) DEFAULT NULL,
+  `perso` tinyint(4) DEFAULT NULL,
+  `id_patient` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 INSERT into template VALUE
 ('1', 'Aucun'),

@@ -8,6 +8,7 @@ router.post('/', (req, res) => {
     connection.query('INSERT INTO response SET ?', [newResponse],
     (err, results) => {
         if(err) {
+            console.log(err);
             return res.status(500).json({
                 error: err.message,
                 sql : err.sql

@@ -30,8 +30,8 @@ CREATE TABLE patient (
 );
 
 INSERT into patient VALUE
-('1', 'Marie'),
-('2', 'Sophie'),
+('1', 'Sophie'),
+('2', 'Marie'),
 ('3', 'Bruno'),
 ('4', 'Henri'),
 ('5', 'Patrick'),
